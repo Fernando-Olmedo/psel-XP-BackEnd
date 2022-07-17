@@ -1,23 +1,19 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class conta extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
-  }
-  conta.init({
-    saldo: DataTypes.DECIMAL
-  }, {
-    sequelize,
-    modelName: 'conta',
+const createConta = (sequelize, DataTypes) => {
+  const Conta = sequelize.define("Conta", {
+    codCliente: DataTypes.INTEGER,
+    saldo: DataTypes.DECIMAL,
+  },
+  {
+    tableName: 'Contas',
+    underscored: true,
   });
-  return conta;
+
+  Conta.associate = (models) => {
+    Conta.belongsTo(models.Cliente,
+      { foreignKey: 'codCliente', as: 'cliente' });
+    };
+
+  return Conta;
 };
+
+module.exports = createConta;

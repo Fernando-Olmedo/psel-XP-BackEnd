@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Contas', {
+    await queryInterface.createTable('contas', {
       idConta: {
         allowNull: false,
         autoIncrement: true,
@@ -11,18 +11,19 @@ module.exports = {
       },
       codCliente: {
         allowNull: false,
+        autoIncrement: false,
         field: 'cod_cliente',
         foreignKey: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
       saldo: {
-        allowNull: false,
-        type: Sequelize.DECIMAL(10,2),
+        type: Sequelize.DECIMAL
       },
+      timestamps: false
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Contas');
+    await queryInterface.dropTable('contas');
   }
 };
