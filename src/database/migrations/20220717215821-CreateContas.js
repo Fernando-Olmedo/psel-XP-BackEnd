@@ -12,8 +12,13 @@ module.exports = {
       codCliente: {
         allowNull: false,
         field: 'cod_cliente',
-        foreignKey: true,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
         primaryKey: true,
+        references: {
+          model: 'Clientes',
+          key: 'cod_cliente',
+        },
         type: Sequelize.INTEGER
       },
       saldo: {
@@ -22,7 +27,7 @@ module.exports = {
       },
     });
   },
-  async down(queryInterface, Sequelize) {
+  async down(queryInterface, _Sequelize) {
     await queryInterface.dropTable('Contas');
   }
 };
