@@ -5,4 +5,4 @@ const buyOrder = async (order) => {
     return buyOrder;
 };
 
-module.exports = buyOrder;
+module.exports = { buyOrder };

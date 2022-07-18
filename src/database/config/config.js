@@ -8,6 +8,9 @@ module.exports = {
     host: process.env.MYSQL_HOST || 'localhost',
     port: process.env.MYSQL_PORT || '3306',
     dialect: 'mysql',
+    define: {
+      timestamps: false,
+  },
   },
   test: {
     username: process.env.MYSQL_USER || 'root',
@@ -16,6 +19,9 @@ module.exports = {
     host: process.env.MYSQL_HOST || 'localhost',
     port: process.env.MYSQL_PORT || '3306',
     dialect: 'mysql',
+    define: {
+      timestamps: false,
+  },
   },
   production: {
     username: process.env.MYSQL_USER || 'root',
@@ -24,5 +30,8 @@ module.exports = {
     host: process.env.MYSQL_HOST || 'localhost',
     port: process.env.MYSQL_PORT || '3306',
     dialect: 'mysql',
+    define: {
+      timestamps: false,
+  },
   },
 };

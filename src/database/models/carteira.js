@@ -24,3 +24,5 @@ const createCarteira = (sequelize, DataTypes) => {
 
   return Carteira;
 };
+
+module.exports = createCarteira;

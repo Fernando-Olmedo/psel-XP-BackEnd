@@ -13,7 +13,7 @@ const createCliente = (sequelize, DataTypes) => {
     Cliente.associate = (models) => {
       Cliente.hasOne(models.Conta,
         { foreignKey: 'codCliente', as: 'conta' });
-      Cliente.hasMany(models.Ordens,
+      Cliente.hasMany(models.Ordem,
         { foreignKey: 'codCliente', as: 'ordem' });
       };
   

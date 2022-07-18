@@ -1,8 +1,9 @@
 const express = require('express');
-const investmentsControllers = require('../../draft/controllers/investments.controller');
+const investmentsControllers = require('../controllers/investments.controller');
 
 const investimentsRouter = express.Router();
 
-investimentsRouter.post('/', investmentsControllers.buyOrder);
+investimentsRouter.get('/teste', investmentsControllers.findAll);
+investimentsRouter.post('/comprar', investmentsControllers.buyOrder);
 
 module.exports = investimentsRouter;

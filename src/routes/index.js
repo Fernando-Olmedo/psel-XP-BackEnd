@@ -4,7 +4,7 @@ const investimentsRouter = require('./investments');
 
 const router = express.Router();
 
-router.use('/investimentos/comprar', investimentsRouter);
+router.use('/investimentos', investimentsRouter);
 // router.use('/conta', depositsAndWithdrawalsRoute);
 
 module.exports = router;

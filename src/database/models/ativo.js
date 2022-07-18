@@ -11,11 +11,13 @@ const createAtivo = (sequelize, DataTypes) => {
   });
 
   Ativo.associate = (models) => {
-    Ativo.hasMany(models.Carteiras,
+    Ativo.hasMany(models.Carteira,
       { foreignKey: 'codAtivo', as: 'carteira' });
-    Ativo.hasMany(models.Ordens,
+    Ativo.hasMany(models.Ordem,
       { foreignKey: 'codAtivo', as: 'ordem' });
     };
 
   return Ativo;
 };
+
+module.exports = createAtivo;
