@@ -1,6 +1,6 @@
 const createCarteira = (sequelize, DataTypes) => {
   const Carteira = sequelize.define("Carteira", {
-    quantidade: DataTypes.INTEGER,
+    qtdeAtivo: DataTypes.INTEGER,
   },
   {
     tableName: 'Carteiras',

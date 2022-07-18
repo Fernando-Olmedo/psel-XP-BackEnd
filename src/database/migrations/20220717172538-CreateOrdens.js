@@ -8,17 +8,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      codAtivo: {
-        allowNull: false,
-        field: 'cod_Ativo',
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
-        references: {
-          model: 'Ativos',
-          key: 'cod_ativo',
-        },
-        type: Sequelize.INTEGER
-      },
       codCliente: {
         allowNull: false,
         field: 'cod_cliente',
@@ -28,20 +17,34 @@ module.exports = {
         },
         type: Sequelize.INTEGER
       },
-      dataTransacao: {
+      codAtivo: {
         allowNull: false,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
-        type: Sequelize.DATE
+        field: 'cod_Ativo',
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Ativos',
+          key: 'cod_ativo',
+        },
+        type: Sequelize.STRING
       },
-      quantidade: {
+      qtdeAtivo: {
+        field: 'qtde_ativo',
         type: Sequelize.INTEGER
       },
       tipo: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
-      valorAcao: {
+      valorAtivo: {
+        field: 'valor_ativo',
         type: Sequelize.DECIMAL(10,2),
       },
+      dataTransacao: {
+        allowNull: false,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        field: 'data_transacao',
+        type: Sequelize.DATE
+      }
     });
   },
   async down(queryInterface, _Sequelize) {

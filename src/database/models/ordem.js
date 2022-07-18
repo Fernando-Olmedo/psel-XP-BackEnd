@@ -1,12 +1,12 @@
 const createOrdem = (sequelize, DataTypes) => {
   const Ordem = sequelize.define("Ordem", {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    codAtivo: DataTypes.INTEGER,
+    codAtivo: DataTypes.STRING,
     codCliente: DataTypes.INTEGER,
     dataTransacao: { type: DataTypes.DATE, defaultValue: DataTypes.NOW },
-    quantidade: DataTypes.INTEGER,
-    tipo: DataTypes.STRING,
-    valorAcao: DataTypes.DECIMAL(10,2),
+    qtdeAtivo: DataTypes.INTEGER,
+    tipo: DataTypes.INTEGER,
+    valorAtivo: DataTypes.DECIMAL(10,2),
   },
   {
     tableName: 'Ordens',
