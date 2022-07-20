@@ -1,5 +1,6 @@
 const createCarteira = (sequelize, DataTypes) => {
   const Carteira = sequelize.define("Carteira", {
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     qtdeAtivo: DataTypes.INTEGER,
   },
   {

@@ -12,7 +12,7 @@ module.exports = {
         saldo: 0.00
       },
       {
-        cod_cliente: 1,
+        cod_cliente: 3,
         saldo: 500.00
       }
     ], {});
