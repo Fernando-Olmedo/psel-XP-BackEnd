@@ -13,7 +13,7 @@ const getWallet = async (codCliente) => {
             'codCliente',
             'codAtivo',
             'qtdeAtivo',
-            [sequelize.col('ativo.valor_atual_ativo'), 'valorAtivo'],
+            [sequelize.col('ativo.valor_atual_ativo'), 'valor'],
         ], 
         include: { model: Ativo, as: 'ativo', attributes: [] },
     });
