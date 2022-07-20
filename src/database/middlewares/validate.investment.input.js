@@ -17,7 +17,7 @@ const errorCode = {
   'number.integer': 422,
 };
 
-const validateInvestment = async (req, res, next) => {
+module.exports = async (req, res, next) => {
   const { error } = investmentDataSchema.validate(req.body, { abortEarly: true });
   if (error) {
     console.log(error.details);
@@ -25,5 +25,3 @@ const validateInvestment = async (req, res, next) => {
   }
   next();
 };
-  
-module.exports = { validateInvestment };
