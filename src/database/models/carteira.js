@@ -12,13 +12,13 @@ const createCarteira = (sequelize, DataTypes) => {
     Carteira.belongsTo(models.Cliente, { 
       as: 'cliente' ,
       through: Carteira,
-      foreignKey: 'codAtivo',
+      foreignKey: 'codCliente',
       otherKey: 'codCliente',
     });
     Carteira.belongsTo(models.Ativo, { 
       as: 'ativo' ,
       through: Carteira,
-      foreignKey: 'codCliente',
+      foreignKey: 'codAtivo',
       otherKey: 'codAtivo',
     });
   };
