@@ -7,9 +7,13 @@ module.exports = {
         autoIncrement: false,
         field: 'cod_ativo',
         primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      empresa: {
+        allowNull: false,
         type: Sequelize.STRING
       },
-      nome: {
+      sigla: {
         allowNull: false,
         type: Sequelize.STRING
       },

@@ -1,7 +1,8 @@
 const createAtivo = (sequelize, DataTypes) => {
   const Ativo = sequelize.define("Ativo", {
-    codAtivo: { type: DataTypes.STRING, primaryKey: true, autoIncrement: false },
-    nome: DataTypes.STRING,
+    codAtivo: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: false },
+    empresa: DataTypes.STRING,
+    sigla: DataTypes.STRING,
     qtdeAtivo: DataTypes.INTEGER,
     valorAtualAtivo: DataTypes.DECIMAL(10,2),
   },

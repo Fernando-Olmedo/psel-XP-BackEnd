@@ -30,7 +30,7 @@ module.exports = {
           key: 'cod_ativo',
         },
         primaryKey: true,
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       qtdeAtivo: {
         allowNull: false,

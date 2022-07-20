@@ -5,6 +5,8 @@ module.exports = async (req, res, next) => {
 
     const ativoCorretora = await Ativo.findOne({ attributes: ['qtdeAtivo'],
     where: { codAtivo } });
+
+    console.log(ativoCorretora.qtdeAtivo);
     
     if (qtdeAtivo > ativoCorretora.qtdeAtivo) {
        return res.status(400).json({ message: 'quantity requested not available' });

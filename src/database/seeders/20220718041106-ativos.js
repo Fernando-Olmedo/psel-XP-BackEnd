@@ -4,21 +4,24 @@ module.exports = {
   async up (queryInterface, _Sequelize) {
      await queryInterface.bulkInsert('Ativos', [
       {
-        cod_ativo: 'ITUB4',
+        cod_ativo: 101,
         valor_atual_ativo: 22.55,
-        nome: 'Itau Unibanco',
+        empresa: 'Itau Unibanco',
+        sigla: 'ITUB4',
         qtde_ativo: 20
       },
       {
-        cod_ativo: 'XPBR31',
+        cod_ativo: 102,
         valor_atual_ativo: 94.31,
-        nome: 'XP Inc',
+        empresa: 'XP Inc',
+        sigla: 'XPBR31',
         qtde_ativo: 500
       },
       {
-        cod_ativo: 'PETR4',
+        cod_ativo: 103,
         valor_atual_ativo: 27.96,
-        nome: 'Petrobras',
+        empresa: 'Petrobras',
+        sigla:'PETR4',
         qtde_ativo: 150
       }
     ], {});

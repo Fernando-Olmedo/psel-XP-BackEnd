@@ -26,7 +26,7 @@ module.exports = {
           model: 'Ativos',
           key: 'cod_ativo',
         },
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       qtdeAtivo: {
         field: 'qtde_ativo',

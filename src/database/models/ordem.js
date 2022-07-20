@@ -1,7 +1,7 @@
 const createOrdem = (sequelize, DataTypes) => {
   const Ordem = sequelize.define("Ordem", {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    codAtivo: DataTypes.STRING,
+    codAtivo: DataTypes.INTEGER,
     codCliente: DataTypes.INTEGER,
     dataTransacao: { type: DataTypes.DATE, defaultValue: DataTypes.NOW },
     qtdeAtivo: DataTypes.INTEGER,
