@@ -10,7 +10,9 @@ const login = async (payload) => {
         where: { email },
     });
 
-    if (user.lenght === 0) {
+    console.log('_________', user);
+
+    if (!user) {
         const errorObject = { status: 401, message: 'Email is not valid' };
         throw errorObject;
     }
