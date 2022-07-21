@@ -1,4 +1,6 @@
 const jwt = require('jsonwebtoken');
+const { Cliente } = require('../database/models');
+
 require('dotenv').config();
 
 const SECRET = process.env.JWT_SECRET;
@@ -16,8 +18,14 @@ const authenticationToken = async (token) => {
         throw errorObject;
     }
     try {
-        const introspection = await jwt.verify(token, SECRET, jwtConfig);
-        return introspection;
+        const decoded = jwt.verify(token, SECRET, jwtConfig);
+
+        const user = await Cliente.findOne({ where: { email: decoded.data } });
+
+        if (!user) {
+            const errorObject = { status: 401, message: 'User not found' };
+            throw errorObject;
+        }
     } catch (e) {
         const errorObject = { status: 401, message: 'Expired or invalid token' };
         throw errorObject;

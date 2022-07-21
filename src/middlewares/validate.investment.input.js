@@ -20,7 +20,6 @@ const errorCode = {
 module.exports = async (req, res, next) => {
   const { error } = investmentDataSchema.validate(req.body, { abortEarly: true });
   if (error) {
-    console.log(error.details);
     return res.status(errorCode[error.details[0].type]).json({ message: error.details[0].message });
   }
   next();
