@@ -6,7 +6,6 @@ const config = require('../database/config/config');
 const sequelize = new Sequelize(config.development);
 
 const getWallet = async (codCliente) => {
-    console.log(codCliente);
     const allAssets = await Carteira.findAll({ 
         where: { codCliente },
         attributes: [
@@ -17,7 +16,6 @@ const getWallet = async (codCliente) => {
         ], 
         include: { model: Ativo, as: 'ativo', attributes: [] },
     });
-    console.log(allAssets);
     return allAssets;
 };
 

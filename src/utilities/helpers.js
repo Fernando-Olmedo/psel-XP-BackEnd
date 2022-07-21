@@ -49,8 +49,28 @@ const atualizaSaldo = async (ordem) => {
         const saldoVenda = parseFloat(ordem.qtdeAtivo * ativoCorretora.valorAtualAtivo);
         novoSaldo = saldoConta + saldoVenda; // Na venda, "deposita" o dinheiro na conta do cliente
     }
-        console.log('quantidade novo Saldo', novoSaldo);
+
     return { saldo: novoSaldo };
 };
 
-module.exports = { qtdeAtivo, qtdeAtivoCart, procuraAtivoCart, atualizaSaldo };
+const atualizaConta = async (movimentacao) => {
+    const conta = await Conta.findOne({ 
+        attributes: ['codCliente', 'saldo'],
+        where: { codCliente: movimentacao.codCliente } });
+    console.log('helpers', conta);
+    let novoSaldo;
+    const saldoAtual = parseFloat(conta.saldo);
+    const saldoMov = parseFloat(movimentacao.valor);
+
+    console.log('helpers saldo atual', saldoAtual);
+    console.log('helpers saldo mov', saldoMov);
+
+    if (movimentacao.tipo === 'deposit') novoSaldo = saldoAtual + saldoMov;
+    else novoSaldo = saldoAtual - saldoMov;  
+
+    console.log('helpers novo saldo', novoSaldo);
+    
+    return { saldo: novoSaldo };
+};
+
+module.exports = { qtdeAtivo, qtdeAtivoCart, procuraAtivoCart, atualizaSaldo, atualizaConta };
