@@ -8,5 +8,6 @@ const depAndWithRouter = express.Router();
 depAndWithRouter.post('/deposito', validateDepAndWithInput, depAndWithController.deposit);
 depAndWithRouter.post('/saque',
     validateDepAndWithInput, checkAccountBalance, depAndWithController.withdrawal);
+depAndWithRouter.get('/:codCliente', depAndWithController.balance);
 
 module.exports = depAndWithRouter;

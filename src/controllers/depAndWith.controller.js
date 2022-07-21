@@ -12,7 +12,14 @@ const withdrawal = async (req, res) => {
     return res.status(201).json(saldo);
 };
 
+const balance = async (req, res) => {
+    const { codCliente } = req.params;
+    const saldo = await depAndWithService.getBalance(codCliente);
+    return res.status(201).json(saldo);
+};
+
 module.exports = {
     deposit,
     withdrawal,
+    balance,
 };

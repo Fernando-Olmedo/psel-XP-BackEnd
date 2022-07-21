@@ -14,8 +14,17 @@ const createMov = async (deposit) => {
         attributes: ['codCliente', 'saldo'], 
         where: { codCliente: deposit.codCliente },
     });
+
+    return conta;
+};
+
+const getBalance = async (codCliente) => {
+    const conta = await Conta.findOne({ 
+        attributes: ['codCliente', 'saldo'], 
+        where: { codCliente },
+    });
     
     return conta;
 };
 
-module.exports = { createMov };
+module.exports = { createMov, getBalance };
