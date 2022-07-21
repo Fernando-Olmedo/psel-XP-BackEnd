@@ -5,5 +5,6 @@ const validateDepAndWithInput = require('../middlewares/validate.depAndWith.inpu
 const depAndWithRouter = express.Router();
 
 depAndWithRouter.post('/deposito', validateDepAndWithInput, depAndWithController.deposit);
+depAndWithRouter.post('/saque', validateDepAndWithInput, depAndWithController.withdrawal);
 
 module.exports = depAndWithRouter;

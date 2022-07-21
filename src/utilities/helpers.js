@@ -57,18 +57,13 @@ const atualizaConta = async (movimentacao) => {
     const conta = await Conta.findOne({ 
         attributes: ['codCliente', 'saldo'],
         where: { codCliente: movimentacao.codCliente } });
-    console.log('helpers', conta);
+
     let novoSaldo;
     const saldoAtual = parseFloat(conta.saldo);
     const saldoMov = parseFloat(movimentacao.valor);
 
-    console.log('helpers saldo atual', saldoAtual);
-    console.log('helpers saldo mov', saldoMov);
-
     if (movimentacao.tipo === 'deposit') novoSaldo = saldoAtual + saldoMov;
     else novoSaldo = saldoAtual - saldoMov;  
-
-    console.log('helpers novo saldo', novoSaldo);
     
     return { saldo: novoSaldo };
 };

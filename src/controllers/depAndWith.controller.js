@@ -6,6 +6,13 @@ const deposit = async (req, res) => {
     return res.status(201).json(saldo);
 };
 
+const withdrawal = async (req, res) => {
+    req.body = { ...req.body, tipo: 'withdrawal' };
+    const saldo = await depAndWithService.createMov(req.body);
+    return res.status(201).json(saldo);
+};
+
 module.exports = {
     deposit,
+    withdrawal,
 };
