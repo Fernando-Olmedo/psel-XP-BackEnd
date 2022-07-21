@@ -20,12 +20,16 @@ const authenticationToken = async (token) => {
     try {
         const decoded = jwt.verify(token, SECRET, jwtConfig);
 
-        const user = await Cliente.findOne({ where: { email: decoded.data } });
+        const user = await Cliente.findOne({ attributes: { exclude: ['password'] }, 
+            where: { email: decoded.data.email },
+        });
 
         if (!user) {
             const errorObject = { status: 401, message: 'User not found' };
             throw errorObject;
         }
+        
+        return user.dataValues;
     } catch (e) {
         const errorObject = { status: 401, message: 'Expired or invalid token' };
         throw errorObject;

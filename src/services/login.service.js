@@ -10,8 +10,6 @@ const login = async (payload) => {
         where: { email },
     });
 
-    console.log('_________', user);
-
     if (!user) {
         const errorObject = { status: 401, message: 'Email is not valid' };
         throw errorObject;
@@ -24,7 +22,7 @@ const login = async (payload) => {
         throw errorObject;
     }
 
-    const token = generateJWTToken(email);
+    const token = generateJWTToken(user);
     
     return token;
 };
