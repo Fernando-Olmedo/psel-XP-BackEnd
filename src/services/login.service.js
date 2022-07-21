@@ -1,20 +1,30 @@
+const argon2 = require('argon2');
 const { Cliente } = require('../database/models');
 const { generateJWTToken } = require('../utilities/JWTToken');
 
 const login = async (payload) => {
-    const { username, password } = payload;
+    const { email, password } = payload;
 
     const user = await Cliente.findOne({ 
         attributes: { exclude: ['password'] }, 
-        where: { username, password },
+        where: { email },
     });
 
     if (user.lenght === 0) {
-        const errorObject = { status: 401, message: 'Username or password invalid' };
+        const errorObject = { status: 401, message: 'Email is not valid' };
         throw errorObject;
     }
 
-    const token = generateJWTToken(payload);
+    const isPasswordValid = await argon2.verify(user.hash, password);
+
+    if (!isPasswordValid) {
+        const errorObject = { status: 401, message: 'Password is not valid' };
+        throw errorObject;
+    }
+
+    const token = generateJWTToken(email);
     
-    return conta;
+    return token;
 };
+
+module.exports = { login };

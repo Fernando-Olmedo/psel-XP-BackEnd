@@ -1,8 +1,8 @@
 const express = require('express');
-const assetsController = require('../controllers/assets.controller');
+const loginController = require('../controllers/login.controller');
 
-const assetsRouter = express.Router();
+const loginRouter = express.Router();
 
-assetsRouter.post('/ativos/:codAtivo', assetsController.findAsset);
+loginRouter.post('/', loginController.login);
 
-module.exports = assetsRouter;
+module.exports = loginRouter;

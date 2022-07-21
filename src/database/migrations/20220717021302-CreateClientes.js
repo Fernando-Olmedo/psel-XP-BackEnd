@@ -20,14 +20,10 @@ module.exports = {
       password: {
         allowNull: false,
         type: Sequelize.STRING
-      // },
-      // createdAt: {
-      //   allowNull: false,
-      //   type: Sequelize.DATE
-      // },
-      // updatedAt: {
-      //   allowNull: false,
-      //   type: Sequelize.DATE
+      },
+      hash: {
+        allowNull: false,
+        type: Sequelize.STRING
       }
     });
   },
