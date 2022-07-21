@@ -3,7 +3,8 @@ const createCliente = (sequelize, DataTypes) => {
       codCliente: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
       email: DataTypes.STRING,
       nome: DataTypes.STRING,
-      password: DataTypes.STRING
+      password: DataTypes.STRING,
+      hash: DataTypes.STRING
     },
     {
       tableName: 'Clientes',
