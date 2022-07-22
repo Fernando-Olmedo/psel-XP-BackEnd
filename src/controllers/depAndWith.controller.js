@@ -15,7 +15,7 @@ const withdrawal = async (req, res) => {
 const balance = async (req, res) => {
     const { codCliente } = req.params;
     const saldo = await depAndWithService.getBalance(codCliente);
-    return res.status(201).json(saldo);
+    return res.status(200).json(saldo);
 };
 
 module.exports = {
