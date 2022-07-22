@@ -5,14 +5,44 @@ const depAndWithService = require('../../src/services/depAndWith.service');
 
 describe('Testa a camada depAndWithController', () => {
   describe('Testa a rota /conta/{codCliente}', () => {
+    describe('Testa o metodo GET', () => {
+      describe('Testa a função balance', () => {
+        const req = {};
+        const res = {};
+        const contaObj = {
+          codCliente: 1,
+          saldo: 500.00,
+        };
+        before(() => {
+          req.params = { id: 1 };
+          res.status = sinon.stub().returns(res);
+          res.json = sinon.stub().returns();
+          sinon.stub(depAndWithService, 'getBalance').resolves(contaObj);
+        });
+    
+        after(() => {
+          depAndWithService.getBalance.restore();
+        });
 
+        it('Testa se STATUS é chamado com o código 200.', async () => {
+          await depAndWithController.balance(req, res);
+          expect(res.status.calledWith(200)).to.be.equal(true);
+        });
+
+        it('Testa se JSON é chamado com o saldo e codCliente corretos.', async () => {
+          await depAndWithController.balance(req, res);
+          expect(res.json.calledWith(contaObj)).to.be.equal(true);
+        });
+
+      });
+    });
   });
   describe('Testa a rota /conta/(saque || deposito)', () => {
     const req = {};
     const res = {};
     const contaObj = {
       codCliente: 1,
-      valor: 102,
+      saldo: 102,
     };
     const bodyObj = {
       "codCliente": 1,
@@ -37,7 +67,7 @@ describe('Testa a camada depAndWithController', () => {
             expect(res.status.calledWith(201)).to.be.equal(true);
           });
 
-          it('Testa se JSON é chamado com o ativo correto.', async () => {
+          it('Testa se JSON é chamado com o saldo e codCliente corretos.', async () => {
             await depAndWithController.deposit(req, res);
             expect(res.json.calledWith(contaObj)).to.be.equal(true);
           });
@@ -52,7 +82,7 @@ describe('Testa a camada depAndWithController', () => {
             expect(res.status.calledWith(201)).to.be.equal(true);
           });
 
-          it('Testa se JSON é chamado com o ativo correto.', async () => {
+          it('Testa se JSON é chamado com o saldo e codCliente corretos.', async () => {
             await depAndWithController.withdrawal(req, res);
             expect(res.json.calledWith(contaObj)).to.be.equal(true);
           });
