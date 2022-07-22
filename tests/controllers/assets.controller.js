@@ -27,7 +27,7 @@ describe('Testa a camada assetsController', () => {
 
         it('Testa se STATUS é chamado com o código 201.', async () => {
           await assetsController.findAsset(req, res);
-          expect(res.status.calledWith(201)).to.be.equal(true);
+          expect(res.status.calledWith(200)).to.be.equal(true);
         });
 
         it('Testa se JSON é chamado com o ativo correto.', async () => {
