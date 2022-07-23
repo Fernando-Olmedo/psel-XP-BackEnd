@@ -11,6 +11,12 @@ const getAsset = async (codAtivo) => {
         'qtdeAtivo',
         [sequelize.col('valor_atual_ativo'), 'valor'],
     ] });
+
+    if (!asset) {
+        const errorObject = { status: 404, message: 'Asset not found' };
+        throw errorObject;
+    }
+    
     return asset;
 };
 
