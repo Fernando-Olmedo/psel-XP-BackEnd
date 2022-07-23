@@ -33,7 +33,7 @@ describe('Testa a camada clientsController', () => {
           clientsService.getWallet.restore();
         });
 
-        it('Testa se STATUS é chamado com o código 201.', async () => {
+        it('Testa se STATUS é chamado com o código 200.', async () => {
           await clientsController.findAllAssets(req, res);
           expect(res.status.calledWith(200)).to.be.equal(true);
         });

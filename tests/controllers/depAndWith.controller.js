@@ -42,11 +42,11 @@ describe('Testa a camada depAndWithController', () => {
     const res = {};
     const contaObj = {
       codCliente: 1,
-      saldo: 102,
+      saldo: 100.00,
     };
     const bodyObj = {
       "codCliente": 1,
-      "valor": 102
+      "valor": 100.00
     };
     before(() => {
       req.body = bodyObj;
