@@ -184,5 +184,36 @@ Na imagem a seguir é possível observar as tabelas criadas e o relacinamento en
 
 ## 8 - Criar uma lista de ações que passe às informações para Front-End
 
+- O endpoint é acessível através do caminho (` GET /clientes/ativos/list/{codCliente}`);
+
+- Todos os ativos da corretora devem ser retornados, indicando quais ativos um cliente possui e qual a quantidade.
+
+- a API responde com status http `200` e a seguinte estrutura no `body`:
+  ```json
+    [
+      {
+        "codAtivo": 101,
+        "sigla": "ITUB4",
+        "valor": 22.55,
+        "estaNaCarteira": "sim",
+        "qtdeAtivo": 5
+      },
+      {
+        "codAtivo": 102,
+        "sigla": "XPBR31",
+        "valor": 94.31,
+        "estaNaCarteira": "não",
+        "qtdeAtivo": 0
+      },
+      {
+        "codAtivo": 103,
+        "sigla": "PETR4",
+        "valor": 27.96,
+        "estaNaCarteira": "não",
+        "qtdeAtivo": 0
+      }
+    ]
+  ```
+
 # Requisitos Opcionais
 
