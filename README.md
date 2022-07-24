@@ -61,7 +61,7 @@ Na imagem a seguir é possível observar as tabelas criadas e o relacinamento en
 
 ## Contratos de Serviços
 
-## 1 - Crie um endpoint para ordens de compra
+## 01 - Crie um endpoint para ordens de compra
 
 - O endpoint é acessível através do caminho (` POST /investimentos/comprar`);
 
@@ -83,7 +83,7 @@ Na imagem a seguir é possível observar as tabelas criadas e o relacinamento en
  > :point_right: será validado que a quantidade de ativo a ser comprada não pode ser maior que a quantidade disponível na corretora.
 
 
-## 2 - Crie um endpoint para ordens de venda
+## 02 - Crie um endpoint para ordens de venda
 
 - O endpoint é acessível através do caminho (` POST /investimentos/vender`);
 
@@ -104,7 +104,7 @@ Na imagem a seguir é possível observar as tabelas criadas e o relacinamento en
   ```
 > :point_right: será validado que a quantidade de ativo a ser vendida não pode ser maior que a quantidade disponível na carteira.
 
-## 3 - Crie um endpoint para consultar a carteira de um cliente
+## 03 - Crie um endpoint para consultar a carteira de um cliente
 
 - O endpoint é acessível através do caminho (` GET /clientes/ativos/{codCliente}`);
 
@@ -128,7 +128,7 @@ Na imagem a seguir é possível observar as tabelas criadas e o relacinamento en
     ]
   ```
 
-## 4 - Crie um endpoint para consultar um ativos da corretora
+## 04 - Crie um endpoint para consultar um ativos da corretora
 
 - O endpoint é acessível através do caminho (` GET /assets/ativos/{codAtivo}`);
 
@@ -143,7 +143,7 @@ Na imagem a seguir é possível observar as tabelas criadas e o relacinamento en
     }
   ```
 
-## 5 - Crie um endpoint para depositar dinheiro em uma conta
+## 05 - Crie um endpoint para depositar dinheiro em uma conta
 
 - O endpoint é acessível através do caminho (` POST /conta/deposito`);
 
@@ -157,7 +157,7 @@ Na imagem a seguir é possível observar as tabelas criadas e o relacinamento en
   ```
 > :point_right: será validado que a quantidade a ser depositada não poderá ser negativa ou igual a zero.
 
-## 6 - Crie um endpoint para sacar dinheiro da conta
+## 06 - Crie um endpoint para sacar dinheiro da conta
 
 - O endpoint é acessível através do caminho (` POST /conta/saque`);
 
@@ -171,7 +171,7 @@ Na imagem a seguir é possível observar as tabelas criadas e o relacinamento en
   ```
   > :point_right: será validado que a quantidade a ser sacada não poderá ser maior que o saldo da conta; não pode ser negativa e não pode ser igual a zero.
 
-## 7 - Crie um endpoint para buscar o saldo da conta do cliente
+## 07 - Crie um endpoint para buscar o saldo da conta do cliente
 
 - O endpoint é acessível através do caminho (` GET /conta/{codCliente}`);
 
@@ -182,7 +182,7 @@ Na imagem a seguir é possível observar as tabelas criadas e o relacinamento en
     { "codCliente": 1, "saldo": 100.54 }
   ```
 
-## 8 - Criar uma lista de ações que passe às informações para Front-End
+## 08 - Criar uma lista de ações que passe às informações para Front-End
 
 - O endpoint é acessível através do caminho (` GET /clientes/ativos/list/{codCliente}`);
 
@@ -216,4 +216,32 @@ Na imagem a seguir é possível observar as tabelas criadas e o relacinamento en
   ```
 
 # Requisitos Opcionais
+
+## 09 - Testes unitários
+
+## 10 - Autenticação e autorização JWT
+
+- A aplicação tem o endpoint POST `/login`
+
+- O corpo da requisição deverá seguir o formato abaixo:
+  ```json
+  {
+    "email": "johnDoe@xpi.com",
+    "password": "123456"
+  }
+  ```
+- Se a requisição receber um par de `email` e `password` errados/inexistentes, não é possível realizar "login"
+
+ - Se o login foi feito com sucesso o resultado retornado deverá ser conforme exibido abaixo, com um status http `200`:
+  ```json
+    {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjo1LCJkaXNwbGF5TmFtZSI6InVzdWFyaW8gZGUgdGVzdGUiLCJlbWFpbCI6InRlc3RlQGVtYWlsLmNvbSIsImltYWdlIjoibnVsbCJ9LCJpYXQiOjE2MjAyNDQxODcsImV4cCI6MTYyMDY3NjE4N30.Roc4byj6mYakYqd9LTCozU1hd9k_Vw5IWKGL4hcCVG8"
+    }
+  ```
+  > :warning: O token anterior é fictício, o token é gerado a partir da variável de ambiente `JWT_SECRET`, do `payload` da requisição e não contém o atributo `password` em sua construção, apenas o `passwordHash`.
+
+## 11 - Deploy da API
+
+## 11 - Documentação da API (Swagger)
+
 
