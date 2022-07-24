@@ -80,7 +80,7 @@ Na imagem a seguir é possível observar as tabelas criadas e o relacinamento en
       "tipo": 1 
     }
   ```
- > :point_right: será validado a quantidade de ativo a ser comprada não pode ser maior que a quantidade disponível na corretora.
+ > :point_right: será validado que a quantidade de ativo a ser comprada não pode ser maior que a quantidade disponível na corretora.
 
 
 ## 2 - Crie um endpoint para ordens de venda
@@ -102,7 +102,7 @@ Na imagem a seguir é possível observar as tabelas criadas e o relacinamento en
       "tipo": 2 
     }
   ```
-> :point_right: será validado a quantidade de ativo a ser vendida não pode ser maior que a quantidade disponível na carteira.
+> :point_right: será validado que a quantidade de ativo a ser vendida não pode ser maior que a quantidade disponível na carteira.
 
 ## 3 - Crie um endpoint para consultar a carteira de um cliente
 
@@ -155,7 +155,7 @@ Na imagem a seguir é possível observar as tabelas criadas e o relacinamento en
   ```json
     { "codCliente": 1, "valor": 100.54, "tipo": "deposit" }
   ```
-> :point_right: será validado a quantidade a ser depositada não poderá ser negativa ou igual a zero.
+> :point_right: será validado que a quantidade a ser depositada não poderá ser negativa ou igual a zero.
 
 ## 6 - Crie um endpoint para sacar dinheiro da conta
 
@@ -169,7 +169,17 @@ Na imagem a seguir é possível observar as tabelas criadas e o relacinamento en
   ```json
     { "codCliente": 1, "valor": 100.54, "tipo": "withdrawal" }
   ```
-  > :point_right: será validado a quantidade a ser sacada não poderá ser maior que o saldo da conta; não pode ser negativa e não pode ser igual a zero.
+  > :point_right: será validado que a quantidade a ser sacada não poderá ser maior que o saldo da conta; não pode ser negativa e não pode ser igual a zero.
 
+## 7 - Crie um endpoint para buscar o saldo da conta do cliente
+
+- O endpoint é acessível através do caminho (` GET /conta/{codCliente}`);
+
+- Apenas o saldo da conta do cliente com o `codCliente` presente na URL deve ser retornado;
+
+- a API responde com status http `200` e a seguinte estrutura no `body`:
+  ```json
+    { "codCliente": 1, "saldo": 100.54 }
+  ```
 
 
