@@ -65,21 +65,44 @@ Na imagem a seguir é possível observar as tabelas criadas e o relacinamento en
 
 - O endpoint é acessível através do caminho (` POST /investimentos/comprar`);
 
-  - O endpoint deve receber a seguinte estrutura do `body`:
-    ```json
-      { "codCliente": 1, "codAtivo": 102, "qtdeAtivo": 1000 }
-    ```
-    - a API responde com status http `201` e o seguinte `body`:
-    ```json
-      { 
-        "dataTransacao": "2022-07-24T02:19:22.099Z",
-        "id": 21,
-        "codCliente": 1,
-        "codAtivo": 102,
-        "qtdeAtivo": 1000,
-        "tipo": 1 
-      }
-    ```
+- O endpoint deve receber a seguinte estrutura:
+  ```json
+    { "codCliente": 1, "codAtivo": 102, "qtdeAtivo": 1000 }
+  ```
+- a API responde com status http `201` e a seguinte estrutura no `body`:
+  ```json
+    { 
+      "dataTransacao": "2022-07-24T02:19:22.099Z",
+      "id": 21,
+      "codCliente": 1,
+      "codAtivo": 102,
+      "qtdeAtivo": 1000,
+      "tipo": 1 
+    }
+  ```
+ > :point_right: será validado a quantidade de ativo a ser comprada não pode ser maior que a quantidade disponível na corretora.
+
+
+## 2 - Crie um endpoint para ordens de venda
+
+- O endpoint é acessível através do caminho (` POST /investimentos/vender`);
+
+- O endpoint deve receber a seguinte estrutura:
+  ```json
+    { "codCliente": 1, "codAtivo": 102, "qtdeAtivo": 1000 }
+  ```
+- a API responde com status http `201` e a seguinte estrutura no `body`:
+  ```json
+    { 
+      "dataTransacao": "2022-07-24T02:19:22.099Z",
+      "id": 21,
+      "codCliente": 1,
+      "codAtivo": 102,
+      "qtdeAtivo": 1000,
+      "tipo": 2 
+    }
+  ```
+> :point_right: será validado a quantidade de ativo a ser vendida não pode ser maior que a quantidade disponível na carteira.
 
 
 
