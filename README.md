@@ -242,6 +242,15 @@ Na imagem a seguir é possível observar as tabelas criadas e o relacinamento en
 
 ## 11 - Deploy da API
 
-## 11 - Documentação da API (Swagger)
+- A aplicação tem o docker configurado. O docker executa os comandos `prestart` e `seed`, de modo que a aplicação possa ser testada. O comando `npm start` para inicia a aplicação via `CMD`.`
+
+- A aplicação tem o arquivo heroku.yml. O arquivo inicia um servidor do tipo `web`. O run deve executa o servidor utilizando o `node`.
+
+- A aplicação pode ser acessada por meio da url `https://xp-psel-back-end.herokuapp.com`, especificando as rotas definidas nos requisitos anteriores.
+
+- O banco de dados foi criado utlizando o add-on `JawsDB` no heroku.
+
+
+## 12 - Documentação da API (Swagger)
 
 
