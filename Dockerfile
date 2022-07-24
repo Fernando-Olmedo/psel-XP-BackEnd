@@ -8,8 +8,8 @@ RUN npm install
 
 COPY . .
 
-RUN npm run prestart
+# RUN npm run prestart
 
-RUN npm run seed
+# RUN npm run seed
 
 CMD ["npm","start"]
