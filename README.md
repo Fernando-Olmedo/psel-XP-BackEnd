@@ -9,5 +9,13 @@ Desafio Técnico do processo seletivo da Turma XP – Trybe.
   <br />
 </details>
 
+![exemplo-de-app](https://github.com/Fernando-Olmedo/psel-XP-BackEnd/blob/main/src/public/exemplo_app.png?raw=true)
+
+<img src="https://github.com/Fernando-Olmedo/psel-XP-BackEnd/blob/main/src/public/db_diagram.png?raw=true" width="200" />
+
+
+
+
+https://github.com/Fernando-Olmedo/psel-XP-BackEnd/blob/main/src/public/topologia_aplicacao.png?raw=true
 
 src/public/exemplo_app.png
