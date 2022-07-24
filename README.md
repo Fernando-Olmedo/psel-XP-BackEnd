@@ -135,13 +135,41 @@ Na imagem a seguir é possível observar as tabelas criadas e o relacinamento en
 - Apenas o ativo da corretora com o `codAtivo` presente na URL deve ser retornado;
 
 - a API responde com status http `200` e a seguinte estrutura no `body`:
- ```json
+  ```json
     { 
       "codAtivo": 102,
       "qtdeAtivo": 10000,
       "valor": 29.05 
     }
   ```
+
+## 5 - Crie um endpoint para depositar dinheiro em uma conta
+
+- O endpoint é acessível através do caminho (` POST /conta/deposito`);
+
+- O endpoint deve receber a seguinte estrutura:
+  ```json
+    { "codCliente": 1, "valor": 100.54 }
+  ```
+- a API responde com status http `201` e a seguinte estrutura no `body`:
+  ```json
+    { "codCliente": 1, "valor": 100.54, "tipo": "deposit" }
+  ```
+> :point_right: será validado a quantidade a ser depositada não poderá ser negativa ou igual a zero.
+
+## 6 - Crie um endpoint para sacar dinheiro da conta
+
+- O endpoint é acessível através do caminho (` POST /conta/saque`);
+
+- O endpoint deve receber a seguinte estrutura:
+  ```json
+    { "codCliente": 1, "valor": 100.54 }
+  ```
+- a API responde com status http `201` e a seguinte estrutura no `body`:
+  ```json
+    { "codCliente": 1, "valor": 100.54, "tipo": "withdrawal" }
+  ```
+  > :point_right: será validado a quantidade a ser sacada não poderá ser maior que o saldo da conta; não pode ser negativa e não pode ser igual a zero.
 
 
 
