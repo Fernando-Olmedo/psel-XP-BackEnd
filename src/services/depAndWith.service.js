@@ -6,16 +6,16 @@ const { atualizaConta } = require('../utilities/helpers');
 
 // const sequelize = new Sequelize(config.development);
 
-const createMov = async (deposit) => {
-    const saldoObj = await atualizaConta(deposit);
-    await Conta.update(saldoObj, { where: { codCliente: deposit.codCliente } });
+const createMov = async (transaction) => {
+    const saldoObj = await atualizaConta(transaction);
+    await Conta.update(saldoObj, { where: { codCliente: transaction.codCliente } });
 
-    const conta = await Conta.findOne({ 
-        attributes: ['codCliente', 'saldo'], 
-        where: { codCliente: deposit.codCliente },
-    });
+    // const conta = await Conta.findOne({ 
+    //     attributes: ['codCliente', 'saldo'], 
+    //     where: { codCliente: transaction.codCliente },
+    // });
 
-    return conta;
+    return transaction;
 };
 
 const getBalance = async (codCliente) => {
