@@ -3,7 +3,9 @@ const { Ativo } = require('../database/models');
 
 const config = require('../database/config/config');
 
-const sequelize = new Sequelize(config.development);
+const env = process.env.envVar || process.env.NODE_ENV || 'development';
+
+const sequelize = new Sequelize(config[env]);
 
 const getAsset = async (codAtivo) => {
     const asset = await Ativo.findByPk(codAtivo, { attributes: [
@@ -16,7 +18,7 @@ const getAsset = async (codAtivo) => {
         const errorObject = { status: 404, message: 'Asset not found' };
         throw errorObject;
     }
-    
+
     return asset;
 };
 

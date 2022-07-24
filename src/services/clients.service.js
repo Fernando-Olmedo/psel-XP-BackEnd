@@ -3,7 +3,9 @@ const { Carteira, Ativo } = require('../database/models');
 
 const config = require('../database/config/config');
 
-const sequelize = new Sequelize(config.development);
+const env = process.env.envVar || process.env.NODE_ENV || 'development';
+
+const sequelize = new Sequelize(config[env]);
 
 const getWallet = async (codCliente) => {
     const allAssets = await Carteira.findAll({ 
