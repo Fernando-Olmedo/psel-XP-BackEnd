@@ -8,9 +8,9 @@ const {
 } = require('../utilities/helpers');
 const config = require('../database/config/config');
 
-const env = process.env.envVar || process.env.NODE_ENV || 'development';
+const env = process.env.envVar;
 
-const sequelize = new Sequelize(config[env]);
+const sequelize = new Sequelize(config[env], config);
 
 const errorObject = { status: 500, message: 'Something went bad...' };
 
