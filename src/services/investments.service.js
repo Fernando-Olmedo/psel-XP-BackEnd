@@ -8,10 +8,7 @@ const {
 } = require('../utilities/helpers');
 const config = require('../database/config/config');
 
-const env = process.env.envVar;
-
-const sequelize = new Sequelize(config[env], config);
-
+const sequelize = new Sequelize(config.production);
 const errorObject = { status: 500, message: 'Something went bad...' };
 
 const buyOrder = async (ordem) => {
