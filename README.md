@@ -10,7 +10,7 @@ Desafio Técnico do processo seletivo da Turma XP – Trybe.
 
   **Requisitos Obrigatórios**
   • Endpoints listados abaixo, na seção de Contratos de
-  Back-End;
+  Serviços;
   • Criar uma lista de ações que passe às informações para
   Front-End (inclusive as informações da quantidade
   investida em cada ação)
@@ -56,6 +56,30 @@ Desafio Técnico do processo seletivo da Turma XP – Trybe.
 Na imagem a seguir é possível observar as tabelas criadas e o relacinamento entre as mesmas.
 
 ![diagrama-entidade-relacionamento](https://github.com/Fernando-Olmedo/psel-XP-BackEnd/blob/main/src/public/db_diagram.png?raw=true)
+
+# Requisitos Obrigatórios
+
+## Contratos de Serviços
+
+## 1 - Crie um endpoint para ordens de compra
+
+- O endpoint é acessível através do caminho (` POST /investimentos/comprar`);
+
+  - O endpoint deve receber a seguinte estrutura do `body`:
+    ```json
+      { "codCliente": 1, "codAtivo": 102, "qtdeAtivo": 1000 }
+    ```
+    - a API responde com status http `201` e o seguinte `body`:
+    ```json
+      { 
+        "dataTransacao": "2022-07-24T02:19:22.099Z",
+        "id": 21,
+        "codCliente": 1,
+        "codAtivo": 102,
+        "qtdeAtivo": 1000,
+        "tipo": 1 
+      }
+    ```
 
 
 
