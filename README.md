@@ -104,6 +104,44 @@ Na imagem a seguir é possível observar as tabelas criadas e o relacinamento en
   ```
 > :point_right: será validado a quantidade de ativo a ser vendida não pode ser maior que a quantidade disponível na carteira.
 
+## 3 - Crie um endpoint para consultar a carteira de um cliente
+
+- O endpoint é acessível através do caminho (` GET /clientes/ativos/{codCliente}`);
+
+- Apenas os ativos do cliente com o `codCliente` presente na URL deve ser retornado;
+
+- a API responde com status http `200` e a seguinte estrutura no `body`:
+  ```json
+    [
+      {
+        "codCliente": 1,
+        "codAtivo": 102,
+        "qtdeAtivo": 100,
+        "valor": 94.31
+      },
+      {
+        "codCliente": 1,
+        "codAtivo": 101,
+        "qtdeAtivo": 200,
+        "valor": 22.55
+      }
+    ]
+  ```
+
+## 4 - Crie um endpoint para consultar um ativos da corretora
+
+- O endpoint é acessível através do caminho (` GET /assets/ativos/{codAtivo}`);
+
+- Apenas o ativo da corretora com o `codAtivo` presente na URL deve ser retornado;
+
+- a API responde com status http `200` e a seguinte estrutura no `body`:
+ ```json
+    { 
+      "codAtivo": 102,
+      "qtdeAtivo": 10000,
+      "valor": 29.05 
+    }
+  ```
 
 
 
