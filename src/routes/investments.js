@@ -1,6 +1,6 @@
 const express = require('express');
 const investmentsController = require('../controllers/investments.controller');
-const WalletQuantityMiddlewate = require('../middlewares/validade.wallet.quantity.middlewate');
+const WalletQuantityMiddleware = require('../middlewares/validade.wallet.quantity.middleware');
 const assetQuantityMiddleware = require('../middlewares/validate.asset.quantity.middleware');
 const validateInvestment = require('../middlewares/validate.investment.input');
 
@@ -10,6 +10,6 @@ investimentsRouter.get('/teste', investmentsController.findAll);
 investimentsRouter.post('/comprar', 
     validateInvestment, assetQuantityMiddleware, investmentsController.buyOrder);
 investimentsRouter.post('/vender', 
-    validateInvestment, WalletQuantityMiddlewate, investmentsController.sellOrder);
+    validateInvestment, WalletQuantityMiddleware, investmentsController.sellOrder);
 
 module.exports = investimentsRouter;

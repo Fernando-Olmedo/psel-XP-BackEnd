@@ -9,17 +9,17 @@ Desafio Técnico do processo seletivo da Turma XP – Trybe.
   Nesse projeto foram desenvolvidas todas as camadas da aplicação (Models, Service e Controllers) e, por meio dessa aplicação, é possível realizar as operações básicas que podem ser feitas em um determinado banco de dados.
 
   **Requisitos Obrigatórios**
-  • Endpoints listados abaixo, na seção de Contratos de
+  - Endpoints listados abaixo, na seção de Contratos de
   Serviços;
-  • Criar uma lista de ações que passe às informações para
+  - Criar uma lista de ações que passe às informações para
   Front-End (inclusive as informações da quantidade
   investida em cada ação)
 
   **Requisitos Opcionais**
-  • Testes unitários
-  • Deploy da API
-  • Autenticação e autorização JWT
-  • Documentação da API (Swagger)
+  - Testes unitários
+  - Deploy da API
+  - Autenticação e autorização JWT
+  - Documentação da API (Swagger)
 
   <br />
 </details>
@@ -182,4 +182,7 @@ Na imagem a seguir é possível observar as tabelas criadas e o relacinamento en
     { "codCliente": 1, "saldo": 100.54 }
   ```
 
+## 8 - Criar uma lista de ações que passe às informações para Front-End
+
+# Requisitos Opcionais
 

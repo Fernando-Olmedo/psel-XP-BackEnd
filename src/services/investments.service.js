@@ -11,18 +11,18 @@ const config = require('../database/config/config');
 const sequelize = new Sequelize(config.development);
 const errorObject = { status: 500, message: 'Something went bad...' };
 
-const createOrdem = async (ordem) => {
+const buyOrder = async (ordem) => {
     const t = await sequelize.transaction();
     try {  
     // Atualiza o ativo na tabela ativos com a nova quantidade
      const qtdeObjtAtivo = await qtdeAtivo(ordem);
      await Ativo.update(qtdeObjtAtivo, { where: { codAtivo: ordem.codAtivo }, transaction: t });
-     
+
      // Atualiza o ativo na tabela carteiras com a nova quantidade ou cria um novo ativo
      const isAtivoExistente = await procuraAtivoCart(ordem);
      if (isAtivoExistente) {
-       const qtdeObjtCart = await qtdeAtivoCart(ordem);
-       await Carteira.update(qtdeObjtCart, { 
+       const qtdeCartObjt = await qtdeAtivoCart(ordem);
+       await Carteira.update(qtdeCartObjt, { 
             where: { codCliente: ordem.codCliente, codAtivo: ordem.codAtivo }, transaction: t });
      } else await Carteira.create(ordem, { transaction: t });
 
@@ -38,9 +38,39 @@ const createOrdem = async (ordem) => {
     } catch (e) { await t.rollback(); throw errorObject; }
 };
 
+const sellOrder = async (ordem) => {
+  const t = await sequelize.transaction();
+  const whereObjt = { codCliente: ordem.codCliente, codAtivo: ordem.codAtivo };
+  try {  
+  // Atualiza o ativo na tabela ativos com a nova quantidade
+   const qtdeObjtAtivo = await qtdeAtivo(ordem);
+   await Ativo.update(qtdeObjtAtivo, { where: { codAtivo: ordem.codAtivo }, transaction: t });
+
+   // Atualiza o ativo na tabela carteiras com a nova quantidade ou exclui um ativo
+   const qtdeCartObjt = await qtdeAtivoCart(ordem);
+   const ativo = await Carteira.findOne({ where: whereObjt });
+ 
+   if (ativo.qtdeAtivo === ordem.qtdeAtivo) {
+    await Carteira.destroy({ where: whereObjt, transaction: t });
+   } else { 
+    await Carteira.update(qtdeCartObjt, { where: whereObjt, transaction: t }); 
+  }
+
+   // Atualiza a tabela saldo
+   const saldo = await atualizaSaldo(ordem);
+   await Conta.update(saldo, { where: { codCliente: ordem.codCliente }, transaction: t });
+
+   // Atualiza a tabela ordem
+   const createdOrder = await Ordem.create(ordem, { transaction: t });
+
+   await t.commit();
+   return createdOrder;
+  } catch (e) { await t.rollback(); throw errorObject; }
+};
+
 const findOrder = async () => {
     const allOrders = await Ordem.findAll();
     return allOrders;
 };
 
-module.exports = { createOrdem, findOrder };
+module.exports = { buyOrder, sellOrder, findOrder };
