@@ -8,7 +8,7 @@ const {
 } = require('../utilities/helpers');
 const config = require('../database/config/config');
 
-const sequelize = new Sequelize(config.production);
+const sequelize = new Sequelize(config.development);
 const errorObject = { status: 500, message: 'Something went bad...' };
 
 const buyOrder = async (ordem) => {
