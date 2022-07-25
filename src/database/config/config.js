@@ -30,9 +30,9 @@ module.exports = {
   },
   },
   development: {
-    username: 'mtmpw9azhueov397',
-    password: 'bdk76rf0b1yu0gzu',
-    database: 'eqdx1ivj5j1rt4jv',
+    username: 'ovtcqxcrmilthva2',
+    password: 'wpk6bdildiq9n4o1',
+    database: 'bj1n8d8bjb6em1vf',
     host: 'bmlx3df4ma7r1yh4.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
     port: '3306',
     dialect: 'mysql',
@@ -43,18 +43,18 @@ module.exports = {
       timestamps: false,
     },
   },
-  production: {
-    username: 'mtmpw9azhueov397',
-    password: 'bdk76rf0b1yu0gzu',
-    database: 'eqdx1ivj5j1rt4jv',
-    host: 'bmlx3df4ma7r1yh4.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-    port: '3306',
-    dialect: 'mysql',
-    dialectOptions: {
-      decimalNumbers: true,
-    },
-    define: {
-      timestamps: false,
-    },
-  },
+  // production: {
+  //   username: 'mtmpw9azhueov397',
+  //   password: 'bdk76rf0b1yu0gzu',
+  //   database: 'eqdx1ivj5j1rt4jv',
+  //   host: 'bmlx3df4ma7r1yh4.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+  //   port: '3306',
+  //   dialect: 'mysql',
+  //   dialectOptions: {
+  //     decimalNumbers: true,
+  //   },
+  //   define: {
+  //     timestamps: false,
+  //   },
+  // },
 };
