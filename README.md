@@ -2,6 +2,45 @@
 Desafio Técnico do processo seletivo da Turma XP – Trybe.
 
 <details>
+<summary><strong>Orientações</strong></summary><br />
+
+1. Clone o repositório
+  * `git clone https://github.com/tryber/sd-018-a-project-blogs-api.git`.
+  * Entre na pasta do repositório que você acabou de clonar:
+    * `cd psel-XP-BackEnd`
+
+2. Instale as dependências
+  * `npm install`
+
+3. Crie um arquivo `.env` na raíz do projeto conforme modelo abaixo
+  > :warning: Esse é apenas um modelo
+```javascript
+    #### SERVER VARS
+    NODE_ENV=development
+    PORT=3000
+
+    #### DATABASE VARS  
+    MYSQL_HOST=localhost
+    MYSQL_PORT=3306
+    MYSQL_DB_NAME=XP_psel
+    MYSQL_USER=root
+    MYSQL_PASSWORD=123456
+
+    #### SECRECT VARS
+    JWT_SECRET=XPIncTrybePSel
+```
+4. Execute os comandos `npm prestart` e `npm seed` para criar o banco de dados, executar as migrations e popular o banco com exemplos.
+
+5. Execute o comando `npm start` para iniciar
+
+ > :point_right: se preferir utilizar em modo de desenvolvimente utilize o comando `npm run debug`.
+
+6. A aplicação pode ser acessada por meio da url `https://xp-psel-back-end.herokuapp.com`,
+
+ <br />
+</details>
+
+<details>
   <summary><strong>👨‍💻 O que deverá ser desenvolvido</strong></summary><br />
 
   Uma aplicação que se assemelha ao dia a dia da XP, um aplicativo de investimento em ações, com algumas funcionalidades de conta digital.
@@ -217,7 +256,13 @@ Na imagem a seguir é possível observar as tabelas criadas e o relacinamento en
 
 # Requisitos Opcionais
 
-## 09 - Testes unitários
+## 09 - Testes unitários 🚧 
+
+> :warning: Requisito em desenvolvimento
+
+- Escreve testes para cobrir 100% das camadas da api
+
+- Utiliza o mocha, chai e sinon para escrever os testes;
 
 ## 10 - Autenticação e autorização JWT
 
@@ -226,7 +271,7 @@ Na imagem a seguir é possível observar as tabelas criadas e o relacinamento en
 - O corpo da requisição deverá seguir o formato abaixo:
   ```json
   {
-    "email": "johnDoe@xpi.com",
+    "email": "johndoe@xpi.com",
     "password": "123456"
   }
   ```
@@ -251,6 +296,18 @@ Na imagem a seguir é possível observar as tabelas criadas e o relacinamento en
 - O banco de dados foi criado utlizando o add-on `JawsDB` no heroku.
 
 
-## 12 - Documentação da API (Swagger)
+## 12 - Documentação da API (Swagger) 🚧 
+
+  > :warning: Requisito em desenvolvimento
+
+- Documentar todas as rotas da api.
+
+- As rotas devem conter um modele de requisição e resposta
+
+- Os códigos de sucesso e erro devem estar disponíveis
+
+ > :point_right: A documentação da api pode ser conferida localmente nesse endereço `http://localhost:3000/docs` ou online nesse `https://xp-psel-back-end.herokuapp.com/docs`.
+
+
 
 

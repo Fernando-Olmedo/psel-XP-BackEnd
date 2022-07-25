@@ -20,9 +20,11 @@
         "test": "nyc --all --include src/controllers --include src/services --include src/utilities --include src/middlewares mocha 'tests/**/*.js' --recursive --timeout 60000 --exit",
         "test-coverage": "jest -i --verbose --forceExit --coverage",
         "debug": "nodemon .",
-        "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json ."
+        "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json .",
+        "swagger-autogen": "node swagger.js"
     },
     "dependencies": {
+        "and": "^0.0.3",
         "argon2": "^0.28.7",
         "dotenv": "^16.0.0",
         "express": "4.17.1",
@@ -31,7 +33,10 @@
         "joi": "^17.6.0",
         "jsonwebtoken": "^8.5.1",
         "mysql2": "^2.1.0",
-        "sequelize": "^6.3.4"
+        "sequelize": "^6.3.4",
+        "swagger-autogen": "^2.21.5",
+        "swagger-jsdoc": "^6.2.1",
+        "swagger-ui-express": "^4.5.0"
     },
     "devDependencies": {
         "chai": "^4.3.6",

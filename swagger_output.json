@@ -1,0 +1,375 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "version": "1.0.0",
+    "title": "XP psel back-end",
+    "description": "Api utilizada no processo seletivo da XP no desafio de back-end"
+  },
+  "servers": [{
+    "url": "https://xp-psel-back-end.herokuapp.com",
+    "description": "Api disponibilizada por meio do Heroku"
+  },
+  {  
+    "url": "https://localhost:3000",
+    "description": "Api disponibilizada localmente"
+  }],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerForma": "JWT"
+      }
+    }
+  },
+  "tags": [
+    { 
+      "name": "Investimentos",
+      "description": "Compra e venda de ações"
+    },
+    { 
+      "name": "Clientes",
+      "description": "Carteira de investimentos de cada cliente"
+    },
+    { 
+      "name": "Assets",
+      "description": "Ativos disponibilizados pela corretora"
+    },
+    { 
+      "name": "Conta",
+      "description": "Operações de conta"
+    },
+    { 
+      "name": "Login",
+      "description": "Área de login do cliente"
+    }
+
+],
+  "paths": {
+    "/investimentos/comprar": {
+      "post": {
+        "tags": ["Investimentos"],
+        "description": "",
+        "security": [{
+          "bearerAuth": []
+        }],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Ação a ser comprada",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "codCliente": {
+                  "type": "integer",
+                  "example": 1
+                },
+                "qtdeAtivo": {
+                  "type": "integer",
+                  "example": 150
+                },
+                "codAtivo": {
+                  "type": "integer",
+                  "example": 102
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "content": {
+              "aplication/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "codCliente": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "qtdeAtivo": {
+                      "type": "integer",
+                      "example": 150
+                    },
+                    "codAtivo": {
+                      "type": "integer",
+                      "example": 102
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/investimentos/vender": {
+      "post": {
+        "tags": ["Investimentos"],
+        "description": "",
+        "security": [{
+          "bearerAuth": []
+        }],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Ação a ser vendida",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "codCliente": {
+                  "type": "integer",
+                  "example": 1
+                },
+                "qtdeAtivo": {
+                  "type": "integer",
+                  "example": 150
+                },
+                "codAtivo": {
+                  "type": "integer",
+                  "example": 102
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "content": {
+              "aplication/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "codCliente": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "qtdeAtivo": {
+                      "type": "integer",
+                      "example": 150
+                    },
+                    "codAtivo": {
+                      "type": "integer",
+                      "example": 102
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/clientes/ativos/list/{codCliente}": {
+      "get": {
+        "tags": ["Clientes"],
+        "description": "",
+        "security": [{
+          "bearerAuth": []
+        }],
+        "parameters": [
+          {
+            "name": "codCliente",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/clientes/ativos/{codCliente}": {
+      "get": {
+        "tags": ["Clientes"],
+        "description": "",
+        "security": [{
+          "bearerAuth": []
+        }],
+        "parameters": [
+          {
+            "name": "codCliente",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/assets/ativos/{codAtivo}": {
+      "get": {
+        "tags": ["Assets"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "codAtivo",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/conta/deposito": {
+      "post": {
+        "tags": ["Conta"],
+        "description": "",
+        "security": [{
+          "bearerAuth": []
+        }],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "codCliente": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/conta/saque": {
+      "post": {
+        "tags": ["Conta"],
+        "description": "",
+        "security": [{
+          "bearerAuth": []
+        }],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "codCliente": {
+                  "example": "any"
+                },
+                "valor": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/conta/{codCliente}": {
+      "get": {
+        "tags": ["Conta"],
+        "description": "",
+        "security": [{
+          "bearerAuth": []
+        }],
+        "parameters": [
+          {
+            "name": "codCliente",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/login/": {
+      "post": {
+        "tags": ["Login"],
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "codCliente": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
